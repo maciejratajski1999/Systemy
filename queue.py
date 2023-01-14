@@ -16,6 +16,12 @@ class Node:
         else:
             return str(self.head) + " --> " + str(self.tail)
 
+    def __len__(self):
+        if self.tail is None:
+            return 1
+        else:
+            return 1 + len(self.tail)
+
 class Queue:
 
     def __init__(self):
@@ -28,12 +34,21 @@ class Queue:
             self.front.enqueue(element)
 
     def dequeue(self):
-        front = self.front.head
-        self.front = self.front.tail
-        return front
+        if self.front is None:
+            return None
+        else:
+            front = self.front.head
+            self.front = self.front.tail
+            return front
 
     def __repr__(self):
         if self.front is None:
             return "empty queue"
         else:
             return str(self.front)
+
+    def __len__(self):
+        if self.front is None:
+            return 0
+        else:
+            return len(self.front)
