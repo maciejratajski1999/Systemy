@@ -4,11 +4,11 @@ class Node:
         self.head = element
         self.tail = None
 
-    def enqueue(self, node):
+    def enqueue(self, element):
         if self.tail is None:
             self.tail = Node(element)
         else:
-            self.tail.enqueue(node)
+            self.tail.enqueue(element)
 
     def __str__(self):
         if self.head is None:
