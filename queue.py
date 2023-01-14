@@ -6,7 +6,7 @@ class Node:
 
     def enqueue(self, node):
         if self.tail is None:
-            self.tail = node
+            self.tail = Node(element)
         else:
             self.tail.enqueue(node)
 
@@ -21,11 +21,11 @@ class Queue:
     def __init__(self):
         self.front = None
 
-    def enqueue(self, node):
+    def enqueue(self, element):
         if self.front is None:
-            self.front = node
+            self.front = Node(element)
         else:
-            self.front.enqueue(node)
+            self.front.enqueue(element)
 
     def dequeue(self):
         front = self.front.head
