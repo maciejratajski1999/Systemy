@@ -1,12 +1,4 @@
 from queue import Queue
-import random
-
-n = 20
-
-def make_process(arrive_time, execution_time, name="unknown process"):
-    return {'name': name,
-            'arrive_time' : arrive_time,
-            'execution_time' : execution_time}
 
 def listen(timer, processes, processes_queue):
     for process in processes:
@@ -32,14 +24,13 @@ def serve(timer, current_process, processes_queue, served_processes):
             pass
     return current_process
 
-processes = [make_process(random.randint(0, 100), random.randint(1, 10), f"process{i}") for i in range(n)]
-processes_queue = Queue()
-timer = 0
-current_process = {'begin_time' : timer, 'process' : None}
-served_processes = {}
-while len(processes_queue) != 0 or timer < 100:
-    listen(timer, processes, processes_queue)
-    serve(timer, current_process, processes_queue, served_processes)
-    timer += 1
-
-print(served_processes)
+def simulate(processes):
+    processes_queue = Queue()
+    timer = 0
+    current_process = {'begin_time' : timer, 'process' : None}
+    served_processes = {}
+    while len(processes_queue) != 0 or timer < 100:
+        listen(timer, processes, processes_queue)
+        serve(timer, current_process, processes_queue, served_processes)
+        timer += 1
+    return served_processes
