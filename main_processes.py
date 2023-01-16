@@ -48,5 +48,5 @@ if __name__ == '__main__':
     plt.plot(number_of_processes, ratios)
     plt.title("ratio of average wait time")
     plt.xlabel("n of processes")
-    plt.ylabel("ratio")
+    plt.ylabel("ratio RR/FCFS")
     plt.savefig("wait time ratio")
