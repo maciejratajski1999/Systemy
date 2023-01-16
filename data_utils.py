@@ -41,12 +41,10 @@ def csv_to_list(csv_file_name):
             processes.append(process)
     return processes
 
-def save_results_to_csv(finished_processes, name):
-    iso_time = iso_time_format()
-    n = len(finished_processes.keys())
-    csv_file_name = f"{name}_x{n}_{iso_time}.csv"
+def save_results_to_csv(finished_processes, name, prefix):
+    csv_file_name = f"{prefix}_{name}.csv"
     with open(csv_file_name, 'w') as csv_file:
-        csv_file.write('name,arrive_time,execution_time,exit_time')
+        csv_file.write('exit_time,name,arrive_time,execution_time')
         for exit_time, process in finished_processes.items():
             csv_file.write('\n')
             values = [str(exit_time)] + [str(v) for v in process.values()]
