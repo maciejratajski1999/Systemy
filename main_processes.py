@@ -1,4 +1,4 @@
-from data_utils import generate_to_csv, csv_to_list, save_results_to_csv, average_wait_time
+from processes_data_utils import generate_to_csv, csv_to_list, save_results_to_csv, average_wait_time
 from FCFS import simulate_FCFS
 from RoundRobin import simulate_RoundRobin
 from sys import setrecursionlimit
