@@ -1,7 +1,8 @@
-from queue import Queue
+def find_most_used(times_loaded):
+    return 
 
-def simulate_FIFO(pages, memory_size):
-    memory = Queue()
+def simulate_MFU(pages, memory_size):
+    memory = []
     times_loaded = {page : 0 for page in pages}
     for page in pages:
         if len(memory) < memory_size:
