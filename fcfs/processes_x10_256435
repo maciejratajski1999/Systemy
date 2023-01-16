@@ -1,0 +1,11 @@
+name,arrive_time,execution_time,exit_time
+process8,41,2,43
+process1,86,2,88
+process6,91,3,94
+process5,154,8,162
+process0,164,6,170
+process9,167,5,175
+process3,172,10,185
+process4,291,10,301
+process2,325,4,329
+process7,456,7,463
