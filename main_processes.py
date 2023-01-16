@@ -1,4 +1,4 @@
-from data_utils import save_to_csv, csv_to_list, save_results_to_csv, average_wait_time
+from data_utils import generate_to_csv, csv_to_list, save_results_to_csv, average_wait_time
 from FCFS import simulate_FCFS
 from RoundRobin import simulate_RoundRobin
 from sys import setrecursionlimit
@@ -10,7 +10,7 @@ if __name__ == '__main__':
     number_of_processes = [10] + [50*i for i in range(1, 6)] + [100*i for i in range(3, 11)]
     max_arrival_time = 500
     max_execution_time = 10
-    data_csv = [save_to_csv(n, max_arrival_time, max_execution_time) for n in number_of_processes]
+    data_csv = [generate_to_csv(n, max_arrival_time, max_execution_time) for n in number_of_processes]
     # csv_file_name = "processes_x20_2023-01-16T14_00_54.csv"
     # data_csv = ["data\\processes_x10_2023-01-16T14_28_55.csv",
     #             "data\\processes_x100_2023-01-16T14_28_55.csv",
@@ -44,7 +44,7 @@ if __name__ == '__main__':
 
     ratios = [rr_average_wait_times[i] / fcfs_average_wait_times[i]
               for i in range(len(number_of_processes))]
-    
+
     plt.plot(number_of_processes, ratios)
     plt.title("ratio of average wait time")
     plt.xlabel("n of processes")

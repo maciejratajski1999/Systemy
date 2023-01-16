@@ -18,7 +18,7 @@ def generate_processes(n, max_arrival_time, max_execution_time):
                               f"process{i}") for i in range(n)]
     return processes
 
-def save_to_csv(n, max_arrival_time=100, max_execution_time=10, custom_seed=256435):
+def generate_to_csv(n, max_arrival_time=100, max_execution_time=10, custom_seed=256435):
     processes = generate_processes(n, max_arrival_time, max_execution_time)
     # iso_time = iso_time_format()
     seed(custom_seed)
