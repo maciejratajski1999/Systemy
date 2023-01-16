@@ -22,6 +22,14 @@ class Node:
         else:
             return 1 + len(self.tail)
 
+    def to_list(self):
+        if self.head is None:
+            return []
+        elif self.tail is None:
+            return [self.head]
+        else:
+            return [self.head] + self.tail.to_list()
+
 class Queue:
 
     def __init__(self):
@@ -52,3 +60,9 @@ class Queue:
             return 0
         else:
             return len(self.front)
+
+    def to_list(self):
+        if self.front is None:
+            return []
+        else:
+            return self.front.to_list()
