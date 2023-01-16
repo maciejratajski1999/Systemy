@@ -33,7 +33,20 @@ if __name__ == '__main__':
         # print(f"Average wait time for RoundRobin for n={len(RoundRobin_served_processes)}:")
         rr_results_as_list = csv_to_list(rr_csv_file_name)
         rr_average_wait_times.append(average_wait_time(rr_results_as_list))
+
     plt.plot(number_of_processes, fcfs_average_wait_times)
     plt.plot(number_of_processes, rr_average_wait_times)
     plt.legend(["FCFS", "RoundRobin"])
-    plt.show()
+    plt.xlabel("n of processes")
+    plt.ylabel("average wait time for a process to finish")
+    plt.savefig("wait time comparison")
+    plt.close()
+
+    ratios = [rr_average_wait_times[i] / fcfs_average_wait_times[i]
+              for i in range(len(number_of_processes))]
+    
+    plt.plot(number_of_processes, ratios)
+    plt.title("ratio of average wait time")
+    plt.xlabel("n of processes")
+    plt.ylabel("ratio")
+    plt.savefig("wait time ratio")
